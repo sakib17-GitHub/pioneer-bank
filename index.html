@@ -8,6 +8,97 @@
    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome To Pioneer Bank</h1>
+   <div id="log-inArea">
+    <h1 id="bank-title" class="text-center">Welcome To Pioneer Bank</h1>
+   <div class="submit-Area">
+      <h3>Login</h3>
+      <input placeholder="Write Your E-mail" class="form-control" type="email" name="" id="e-mail">
+      <input placeholder="Write Your Password"  class="form-control" type="password" name="" id="password">
+      <button id="login"  class="btn btn-success">Log In</button>
+   </div>
+   </div>
+
+
+   <div id="transaction-area">
+         <div class="row"> 
+            <div class="col-md-4">
+               <div class="deposit status">
+                  <h3>Deposit</h3>
+                  <h1>$ <span id ="currentDeposit">000</span></h1>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="withdraw status">
+                  <h3>Withdraw</h3>
+                  <h1>$000</h1>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="balance status">
+                  <h3>Balance</h3>
+                  <h1>$1200</h1>
+               </div>
+            </div>
+         </div>
+
+         
+            
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="submit-Area">
+                        <h3>Deposit</h3>
+                     <input id="depositAmount" placeholder="Write Your Deposit Amount" class="form-control input" type="text">
+                     <button id="addDeposit" class="btn btn-success btn">Deposit</button>
+                     </div>
+                  </div>
+
+                  <div class="col-md-6">
+                     <div class="submit-Area">
+                        <h3>Withdraw</h3>
+                     <input placeholder="Write Your Withdraw Amount" class="form-control input" type="text">
+                     <button id="withdrawBtn" class="btn btn-success btn">Withdraw</button>
+                     </div>
+                  </div>
+                 </div>
+                
+          
+         
+   
+
+
+
+
+   <script>
+      document.getElementById('login').addEventListener('click' , function(){
+       const logInArea = document.getElementById('log-inArea');
+       logInArea.style.display = 'none';
+
+       const transactionArea = document.getElementById('transaction-area');
+       transactionArea.style.display = 'block';
+      })
+
+      const depositBtn = document.getElementById('addDeposit');
+      depositBtn.addEventListener('click' , function(){
+         const depositAmount = document.getElementById('depositAmount').value;
+         const depositNumber = parseFloat(depositAmount);
+
+         const currentDeposit = document.getElementById('currentDeposit').innerText;
+         const currentDepositNumber = parseFloat(currentDeposit);
+
+         const totalDeposit = depositNumber + currentDepositNumber;
+         document.getElementById('currentDeposit').innerText = totalDeposit;
+         document.getElementById('depositAmount').value = '';
+
+      })
+
+        
+
+
+     
+      
+     
+
+   </script>
+
 </body>
 </html>
